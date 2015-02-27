@@ -31,12 +31,11 @@ int EigenValue::setupEigenValue()
     cl_uint diagonalSizeBytes = length * sizeof(cl_float);
     diagonal = (cl_float *) malloc(diagonalSizeBytes);
     CHECK_ALLOCATION(diagonal, "Failed to allocate host memory. (diagonal)");
-
     // allocate memory for offdiagonal elements of the matrix of length (length-1)
     cl_uint offDiagonalSizeBytes = (length - 1) * sizeof(cl_float);
     offDiagonal = (cl_float *) malloc(offDiagonalSizeBytes);
     CHECK_ALLOCATION(offDiagonal, "Failed to allocate host memory. (offDiagonal)");
-
+   
     /*
      * allocate memory to store the eigenvalue intervals interleaved with upperbound followed
      * by the lower bound interleaved
